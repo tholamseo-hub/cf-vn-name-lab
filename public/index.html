@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SEO Brief Vault</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div>
+        <span class="eyebrow">CLOUDFLARE MVP</span>
+        <h1>SEO Brief Vault</h1>
+        <p>Save keyword briefs, SERP copy and an optional attachment. Built to test Workers + D1 + R2 without a VPS.</p>
+      </div>
+      <div id="status" class="status">Checking stack…</div>
+    </header>
+    <section class="grid">
+      <form id="brief-form" class="card">
+        <h2>New brief</h2>
+        <label>Primary keyword<input name="keyword" required placeholder="e.g. cloudflare workers seo tool" /></label>
+        <label>SEO title<input id="title" name="title" maxlength="120" placeholder="Draft title" /><small><span id="title-count">0</span> chars · target ≤ 60</small></label>
+        <label>Meta description<textarea id="meta" name="meta" rows="3" maxlength="220" placeholder="Draft meta description"></textarea><small><span id="meta-count">0</span> chars · target 140–160</small></label>
+        <label>Notes<textarea name="notes" rows="5" placeholder="Intent, competitors, outline, internal links…"></textarea></label>
+        <label>Brief file (optional)<input name="file" type="file" /></label>
+        <button type="submit">Save brief</button>
+        <p id="form-message" class="message"></p>
+      </form>
+      <aside class="card preview">
+        <h2>SERP preview</h2>
+        <div class="serp">
+          <div class="url">example.com › guide</div>
+          <div id="preview-title" class="serp-title">Your SEO title appears here</div>
+          <div id="preview-meta" class="serp-meta">Your meta description appears here. Use this preview to keep the snippet clear before saving the brief.</div>
+        </div>
+        <div class="stack-note"><strong>Stack check</strong><p>The page can deploy first. D1 and R2 features activate after their bindings are added in Cloudflare.</p></div>
+      </aside>
+    </section>
+    <section class="card saved">
+      <div class="section-head"><h2>Saved briefs</h2><button id="refresh" class="secondary" type="button">Refresh</button></div>
+      <div id="briefs" class="briefs"><p class="muted">Loading…</p></div>
+    </section>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
